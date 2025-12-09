@@ -49,6 +49,7 @@ header {
 }
 #grass{
     opacity: 0.2;
+}
 .grama {
   background-color: #77BF80;
   border-radius: 20px;
@@ -69,6 +70,7 @@ header {
     margin-top: 2rem;
     justify-content: center;
     gap: 25px;
+}
 .cards {
   /* Mantido Flexbox */
   display: flex;
@@ -87,16 +89,12 @@ header {
   transform: translateY(-5px);
 }
 
-/* .Grama {
-    background-color: #84cd8e;
-    border-radius: 18px;
-    width: 180px;
-    border-radius: 30px;
-} */
 .grama {
+  display: flex;
+  justify-content: space-between;
   background-color: #77BF80;
   border-radius: 18px;
-  width: 180px;
+  width: 150px;
   border-radius: 30px;
   object-fit: contain;
   height: 35px;
