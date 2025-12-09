@@ -39,6 +39,7 @@ header {
 
 .alignText {
   text-align: center;
+  margin-top: 30px;
 }
 
 .buttons,
@@ -53,7 +54,9 @@ a {
 
 .grass {
   background-color: var(--corGrass);
-  width: 500px;
+width: 540px;
+    margin-top: 140px;
+    margin-left: 200px;
   border-radius: 40px;
   font-family: var(--fontFamily);
   font-weight: var(--fontweigth);
@@ -66,7 +69,8 @@ a {
 }
 .ice {
   background-color: var(--corIce);
-  width: 500px;
+width: 540px;
+margin-left: 200px;
   border-radius: 40px;
   font-family: var(--fontFamily);
   font-weight: var(--fontweigth);
@@ -79,7 +83,8 @@ a {
 }
 .figthing {
   background-color: var(--corFigthing);
-  width: 500px;
+width: 540px;
+margin-left: 200px;
   border-radius: 40px;
   font-family: var(--fontFamily);
   font-weight: var(--fontweigth);
@@ -92,7 +97,8 @@ a {
 }
 .poison {
   background-color: var(--corPoison);
-  width: 500px;
+width: 540px;
+margin-left: 200px;
   border-radius: 40px;
   font-family: var(--fontFamily);
   font-weight: var(--fontweigth);
@@ -115,7 +121,7 @@ a {
 .container {
   display: flex;
   justify-content: space-between;
-  margin-top: 28px;
+  margin-top: 10px;
 }
 
 .conteinerNurse {
@@ -124,7 +130,7 @@ a {
   justify-content: center;
   position: relative;
   z-index: -1;
-  margin-top: 118px;
+  margin-top: 70px;
   margin-right: 5rem;
 }
 
@@ -132,6 +138,8 @@ a {
   position: absolute;
   pointer-events: none;
   margin-bottom: -28px;
+    margin-top: -220px;
+
 }
 
 .grassimg {
