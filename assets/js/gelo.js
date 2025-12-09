@@ -1,10 +1,11 @@
+//Seleciona onde os cards serão colocados
 const grid = document.getElementById("grid");
 
 const typeColors = {
   ice: "#65A4E8"
 };
 
-// Lógica de Fetch e Criação
+// Lógica de Fetch e Criação (função que busca o pokémon)
 async function fetchAndCreateCard(pokemon) {
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -18,7 +19,7 @@ async function fetchAndCreateCard(pokemon) {
 }
 
 function createCardHTML(data) {
-  // Extração de dados
+  // Extração de dados para HTML do card
   const name = data.name;
   const id = data.id.toString().padStart(3, "0");
   const imgUrl =
