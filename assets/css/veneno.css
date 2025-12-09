@@ -47,6 +47,7 @@ header {
   font-size: 15px;
 }
 .cards {
+  /* Mantido Flexbox */
   display: flex;
   flex-wrap: wrap;
   margin-top: 2rem;
@@ -142,16 +143,19 @@ header {
 
 @media (max-width: 768px) {
   .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 10px;
   }
 
   .pokemon-card {
+    flex: 1 1 calc(50% - 40px);
     width: 100%;
     height: auto;
     padding: 0.8rem;
     border-radius: 25px;
+   
   }
 
   .poke-img {
@@ -180,18 +184,21 @@ header {
         width: 500px;
     }
 }
-@media ((min-width: 769px) and (max-width: 1024) ) {
+@media ((min-width: 769px) and (max-width: 1024px) ) {
   .cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 10px;
   }
 
   .pokemon-card {
+    flex: 1 1 calc(50% - 40px);
     width: 100%;
     height: auto;
     padding: 0.8rem;
     border-radius: 25px;
+   
   }
 
   .poke-img {
