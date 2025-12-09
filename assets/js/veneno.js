@@ -2,13 +2,19 @@ const grid = document.getElementById("grid");
 
 const typeColors = {
   fighting: "#FF6C6C",
-  steel: "#FF6C6C",
-  psychic: "#FF6C6C",
-  fire: "#FF6C6C",
-  flying: "#FF6C6C",
+  steel: "#A8A8C0",
+  psychic: "#F85888",
+  fire: "#F08030",
+  flying: "#A890F0",
+  poison: "#A33EA1", 
+  bug: "#A8B820",    
+  water: "#6890F0",  
+  dark: "#705848",   
+  ghost: "#705898",  
+  grass: "#78C850",  
+  ground: "#E0C068", 
 };
 
-// Lógica de Fetch e Criação
 async function fetchAndCreateCard(pokemon) {
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -22,7 +28,6 @@ async function fetchAndCreateCard(pokemon) {
 }
 
 function createCardHTML(data) {
-  // Extração de dados
   const name = data.name;
   const id = data.id.toString().padStart(3, "0");
   const imgUrl =
@@ -36,32 +41,27 @@ function createCardHTML(data) {
     .slice(0, 2)
     .join(", ");
 
-  // Stats
   const stats = {};
   data.stats.forEach((s) => (stats[s.stat.name] = s.base_stat));
 
   const atk = stats["attack"] || 0;
   const def = stats["defense"] || 0;
 
-  // Cores
   const mainType = data.types[0].type.name;
-  const color = typeColors[mainType] || "#777";
+  const mainColor = typeColors[mainType] || "#777"; 
 
-  // Gerar HTML dos tipos
   const typesHtml = data.types
     .map((t) => {
       const tName = t.type.name;
-      const tColor = typeColors[tName] || "#BF3434";
+      const tColor = typeColors[tName] || mainColor; 
       return `<span class="type-badge" style="background-color: ${tColor}">${tName}</span>`;
     })
     .join("");
 
-  // Criar card
   const card = document.createElement("div");
   card.classList.add("pokemon-card");
 
-  card.innerHTML = `
-      <div class = "alignImg">
+  card.innerHTML = `<div class = "alignImg">
           <img src="${imgUrl}" class="poke-img" alt="${name}">
         </div>
 
@@ -69,7 +69,7 @@ function createCardHTML(data) {
           <div class = "alignPokeName">
           <h2 class="poke-name">${name}</h2>
           </div>
-         
+          </div>
 
           <div class="info-row">
               <div class="info-box">
@@ -95,7 +95,7 @@ function createCardHTML(data) {
                            style="width: ${Math.min(
                              atk / 2,
                              100
-                           )}%; background-color: ${color}"></div>
+                           )}%; background-color: ${mainColor}"></div>
                   </div>
               </div>
 
@@ -107,7 +107,7 @@ function createCardHTML(data) {
                            style="width: ${Math.min(
                              def / 2,
                              100
-                           )}%; background-color: ${color}"></div>
+                           )}%; background-color: ${mainColor}"></div>
                   </div>
               </div>
           </div>
@@ -115,15 +115,11 @@ function createCardHTML(data) {
       <div class = "alignPokeId">
       <span class="poke-id">#${id}</span>
       </div>
-
   `;
-
-  // Adiciona ao grid
   grid.prepend(card);
 
 }
 
-// Inicializar Pokémons
 (async function init() {
   await fetchAndCreateCard("scolipede");
   await fetchAndCreateCard("beedrill");
